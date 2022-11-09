@@ -3,7 +3,7 @@ PackOpener Class
 Instance Variables:
 private int coins;
 private int overallValue;
-private String 
+private String
 
 
 
