@@ -1,0 +1,25 @@
+PackOpener Class
+
+Instance Variables:
+private int coins;
+private int overallValue;
+private String 
+
+
+
+
+Constructors:
+
+Methods:
+
+PackOpenerRunner.java
+
+Steps:
+1) Welcome the user to the game FIFA Pack Opener
+2) Display game instructions, and display amount of FIFA coins user has
+3) Display the pack choices, user selects pack
+4) Display result of pack, name of the soccer player and overall
+5) Display score (overall of the soccer player), and display amount of coins left
+6) Repeat steps until user doesn't have enough coins to continue
+7) End Game and display highest overall player earned
+
