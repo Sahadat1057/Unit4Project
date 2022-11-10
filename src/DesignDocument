@@ -3,12 +3,14 @@ PackOpener Class
 Instance Variables:
 private int coins;
 private int overallValue;
-private String
 
 
 
 
 Constructors:
+PackOpener() {
+}
+
 
 Methods:
 
@@ -23,3 +25,20 @@ Steps:
 6) Repeat steps until user doesn't have enough coins to continue
 7) End Game and display highest overall player earned
 
+        //Breakdown of the cards:
+        //5 Special Cards (TOTY), //5 90+ overall, 25 80+ overall, 30 70+ overall, 35 60+ overall
+
+        //PackOpener1.0
+        //Need to figure out how lists work
+        //Need to figure out how to use math.random on lists
+
+        //PackOpener1.1
+        //If I get gold standard pack done, I can figure out how to create bronze, special, silver packs
+        //Method 1 create different lists for different packs
+        //Method 2 Figure out how to use math.random and if statements to make sure only a certain range of players are selected
+
+        //PackOpener1.2
+        //Make user vs user and give points based on the highest overall, winner with highest points gets points x 1k coins amount
+        //Make computer vs user following the same format, with user losing coins if they get a less higher overall
+
+    }
