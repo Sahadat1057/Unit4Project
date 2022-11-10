@@ -14,6 +14,15 @@ PackOpener() {
 
 Methods:
 
+public void playerPackChoice(String choice) {
+        choice = choice.toLowerCase();
+        if (choice.equals("bronze")) playerChoice = 1;
+        if (choice.equals("silver")) playerChoice = 2;
+        if (choice.equals("gold")) playerChoice = 3;
+        if(choice.equals("special")) playerChoice = 4;
+    }
+
+
 PackOpenerRunner.java
 
 Steps:
@@ -25,6 +34,8 @@ Steps:
 6) Repeat steps until user doesn't have enough coins to continue
 7) End Game and display highest overall player earned
 
+
+Things to do:
         //Breakdown of the cards:
         //Add 5 Special Cards (TOTY), //5 90+ overall, 25 80+ overall, 30 70+ overall, 35 60+ overall (Gold Pack)
 
