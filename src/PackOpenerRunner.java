@@ -2,6 +2,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 public class PackOpenerRunner {
     public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        PackOpener g = new PackOpener();
 
         System.out.println();
         System.out.println("Hello Welcome to FIFA Pack Opener!");
@@ -15,13 +17,11 @@ public class PackOpenerRunner {
         System.out.println("Gold costs 3000 coins");
         System.out.println("Special costs 4000 coins");
         System.out.println();
-        System.out.println("Please select which pack you would like to open");
+        System.out.println("Please select which pack you would like to open: ");
 
-        Scanner s = new Scanner(System.in);
-        PackOpener g = new PackOpener();
-
-
-        g.openBronzePack();
+       String choice = s.nextLine();
+       g.playerPackChoice(choice);
+       g.openPack();
     }
 
 }
