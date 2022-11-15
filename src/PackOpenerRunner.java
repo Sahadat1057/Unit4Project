@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 public class PackOpenerRunner {
     public static void main(String[] args) {
 
@@ -16,7 +17,11 @@ public class PackOpenerRunner {
         System.out.println();
         System.out.println("Please select which pack you would like to open");
 
-        PackOpener.openSilverPack();
+        Scanner s = new Scanner(System.in);
+        PackOpener g = new PackOpener();
+
+
+        g.openBronzePack();
     }
 
 }
