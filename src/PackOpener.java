@@ -30,6 +30,7 @@ public class PackOpener {
         coins = 5000;
     }
 
+
     public void playerPackChoice(String choice) {
         choice = choice.toLowerCase();
         if (choice.equals("bronze")) playerPackChoice = 1;
