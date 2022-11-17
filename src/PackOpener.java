@@ -27,9 +27,12 @@ public class PackOpener {
         for (int i = 0; i < bronzeCards.length; i++) {
             allBronzeCards.add(bronzeCards[i]);
         }
-        coins = 5000;
     }
 
+    public PackOpener(int coins) {
+        this.coins = coins;
+        coins = 5000;
+    }
 
     public void playerPackChoice(String choice) {
         choice = choice.toLowerCase();
@@ -45,11 +48,11 @@ public class PackOpener {
             int silverRandomPicker = (int) (Math.random() * 2);
             return "Random Card Picked is: " + allSilverCards.get(silverRandomPicker);
         }
-        if (playerPackChoice == 3) {
+       else  if (playerPackChoice == 3) {
             int goldRandomPicker = (int) (Math.random() * 3);
             return "Random Card Picked is: " + allGoldCards.get(goldRandomPicker);
         }
-        if (playerPackChoice == 1) {
+        else if (playerPackChoice == 1) {
             int bronzeRandomPicker = (int) (Math.random() * 2);
             return "Random Card Picked is: " + allBronzeCards.get(bronzeRandomPicker);
         }
