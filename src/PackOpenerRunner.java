@@ -3,6 +3,7 @@ public class PackOpenerRunner {
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
         PackOpener g = new PackOpener();
+        PackOpener c = new PackOpener();
 
         System.out.println();
         System.out.println("Hello Welcome to FIFA Pack Opener!");

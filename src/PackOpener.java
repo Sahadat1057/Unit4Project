@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 public class PackOpener {
-    private int coins;
+    private int coins = 5000;
     private int highestValue;
     private int playerPackChoice;
     private ArrayList<String> allGoldCards;
@@ -8,8 +8,6 @@ public class PackOpener {
     private ArrayList<String> allBronzeCards;
 
     public PackOpener() {
-
-
         String[] silverCards = new String[]{"76 Silver, Dan Burn, CB", "79 Silver, Ronald Araujo, CB"};
         allSilverCards = new ArrayList<String>();
         for (int i = 0; i < silverCards.length; i++) {
@@ -31,7 +29,6 @@ public class PackOpener {
 
     public PackOpener(int coins) {
         this.coins = coins;
-        coins = 5000;
     }
 
     public void playerPackChoice(String choice) {
@@ -44,19 +41,31 @@ public class PackOpener {
 
 
     public String openPack() {
-        if (playerPackChoice == 2) {
+        if (playerPackChoice == 2 && coins >= 2000) {
             int silverRandomPicker = (int) (Math.random() * 2);
-            return "Random Card Picked is: " + allSilverCards.get(silverRandomPicker);
+            coins = coins - 2000;
+            return "Random Card Picked is: " + allSilverCards.get(silverRandomPicker) + "\n" + "Coins: " + coins;
         }
-       else  if (playerPackChoice == 3) {
+       else  if (playerPackChoice == 3 && coins >= 3000) {
             int goldRandomPicker = (int) (Math.random() * 3);
-            return "Random Card Picked is: " + allGoldCards.get(goldRandomPicker);
+            coins = coins - 3000;
+            return "Random Card Picked is: " + allGoldCards.get(goldRandomPicker) + "\n" + "Coins: " + coins;
         }
-        else if (playerPackChoice == 1) {
+        else if (playerPackChoice == 1 && coins >= 1000) {
             int bronzeRandomPicker = (int) (Math.random() * 2);
-            return "Random Card Picked is: " + allBronzeCards.get(bronzeRandomPicker);
+            coins = coins - 1000;
+            return "Random Card Picked is: " + allBronzeCards.get(bronzeRandomPicker) + "\n" + "Coins: " + coins;
         }
         return "nothing";
+    }
+
+    public boolean isGameOver() {
+        return false;
+        // Do the same thing I did with user input for pack choice
+        // Ask user do you want to continue
+        // User will put yes or no
+        // Then create isGameOver method based on that
+        // In the main class use the same thing Mr. Das used and then I'm done
     }
 
 }
