@@ -3,7 +3,8 @@ public class PackOpenerRunner {
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
         PackOpener g = new PackOpener();
-        PackOpener c = new PackOpener();
+        PackOpener c = new PackOpener(5000, false);
+
 
         System.out.println();
         System.out.println("Hello Welcome to FIFA Pack Opener!");
@@ -19,9 +20,13 @@ public class PackOpenerRunner {
         System.out.println();
         System.out.print("Please select which pack you would like to open: ");
 
-       String choice = s.nextLine();
-       g.playerPackChoice(choice);
-       System.out.println(g.openPack());
+        while (c.isGameOver() == false) {
+            String choice = s.nextLine();
+            g.playerPackChoice(choice);
+            System.out.println(g.openPack());
+            System.out.println("Do you want to continue?");
+            String gameChoice = s.nextLine();
+        }
     }
 
 }

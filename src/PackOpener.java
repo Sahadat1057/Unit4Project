@@ -3,6 +3,8 @@ public class PackOpener {
     private int coins = 5000;
     private int highestValue;
     private int playerPackChoice;
+    private int playerGameChoice;
+    private boolean isGameOver = false;
     private ArrayList<String> allGoldCards;
     private ArrayList<String> allSilverCards;
     private ArrayList<String> allBronzeCards;
@@ -27,7 +29,8 @@ public class PackOpener {
         }
     }
 
-    public PackOpener(int coins) {
+    public PackOpener(int coins, boolean isGameOver) {
+        this.isGameOver = isGameOver;
         this.coins = coins;
     }
 
@@ -59,14 +62,30 @@ public class PackOpener {
         return "nothing";
     }
 
-    public boolean isGameOver() {
-        return false;
+
+    public void gameChoice (String gameChoice ) {
+        gameChoice = gameChoice.toLowerCase();
+        if (gameChoice.equals("yes")) isGameOver = false ;
+        if (gameChoice.equals("no")) isGameOver = true ;
         // Do the same thing I did with user input for pack choice
         // Ask user do you want to continue
         // User will put yes or no
         // Then create isGameOver method based on that
         // In the main class use the same thing Mr. Das used and then I'm done
     }
+
+    public boolean isGameOver() {
+        if (playerGameChoice == 1) {
+            return isGameOver = false;
+        }
+        else if (playerGameChoice == 2) {
+            return isGameOver = true;
+        }
+        else return false;
+
+    }
+
+
 
 }
 
