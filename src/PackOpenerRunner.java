@@ -18,15 +18,17 @@ public class PackOpenerRunner {
         System.out.println("Gold costs 3000 coins");
         System.out.println("Special costs 4000 coins");
         System.out.println();
-        System.out.print("Please select which pack you would like to open: ");
 
         while (c.isGameOver() == false) {
+            System.out.print("Please select which pack you would like to open: ");
             String choice = s.nextLine();
             g.playerPackChoice(choice);
             System.out.println(g.openPack());
             System.out.println("Do you want to continue?");
             String gameChoice = s.nextLine();
+            c.gameChoice(gameChoice);
         }
+       System.out.print(c.gameOver());
     }
 
 }

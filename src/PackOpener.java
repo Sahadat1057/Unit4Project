@@ -5,6 +5,7 @@ public class PackOpener {
     private int playerPackChoice;
     private int playerGameChoice;
     private boolean isGameOver = false;
+    private String gameChoice;
     private ArrayList<String> allGoldCards;
     private ArrayList<String> allSilverCards;
     private ArrayList<String> allBronzeCards;
@@ -48,25 +49,23 @@ public class PackOpener {
             int silverRandomPicker = (int) (Math.random() * 2);
             coins = coins - 2000;
             return "Random Card Picked is: " + allSilverCards.get(silverRandomPicker) + "\n" + "Coins: " + coins;
-        }
-       else  if (playerPackChoice == 3 && coins >= 3000) {
+        } else if (playerPackChoice == 3 && coins >= 3000) {
             int goldRandomPicker = (int) (Math.random() * 3);
             coins = coins - 3000;
             return "Random Card Picked is: " + allGoldCards.get(goldRandomPicker) + "\n" + "Coins: " + coins;
-        }
-        else if (playerPackChoice == 1 && coins >= 1000) {
+        } else if (playerPackChoice == 1 && coins >= 1000) {
             int bronzeRandomPicker = (int) (Math.random() * 2);
             coins = coins - 1000;
             return "Random Card Picked is: " + allBronzeCards.get(bronzeRandomPicker) + "\n" + "Coins: " + coins;
         }
-        return "nothing";
+        return "Game is over";
     }
 
 
-    public void gameChoice (String gameChoice ) {
+    public void gameChoice(String gameChoice) {
         gameChoice = gameChoice.toLowerCase();
-        if (gameChoice.equals("yes")) isGameOver = false ;
-        if (gameChoice.equals("no")) isGameOver = true ;
+        if (gameChoice.equals("yes")) playerGameChoice = 1;
+        if (gameChoice.equals("no")) playerGameChoice = 2;
         // Do the same thing I did with user input for pack choice
         // Ask user do you want to continue
         // User will put yes or no
@@ -77,16 +76,21 @@ public class PackOpener {
     public boolean isGameOver() {
         if (playerGameChoice == 1) {
             return isGameOver = false;
-        }
-        else if (playerGameChoice == 2) {
+        } else if (playerGameChoice == 2) {
             return isGameOver = true;
-        }
-        else return false;
+        } else return false;
+
 
     }
 
+    public String gameOver() {
+        if (isGameOver = true) {
+            return "Game is over!";
+        }
+        return "Game is over!";
 
 
+    }
 }
 
 
