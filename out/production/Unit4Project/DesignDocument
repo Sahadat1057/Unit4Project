@@ -1,0 +1,90 @@
+PackOpener Class
+
+Instance Variables:
+private int coins;
+private int overallValue;
+
+
+
+
+Constructors:
+PackOpener() {
+}
+
+
+Methods:
+
+public void playerPackChoice(String choice) {
+        choice = choice.toLowerCase();
+        if (choice.equals("bronze")) playerChoice = 1;
+        if (choice.equals("silver")) playerChoice = 2;
+        if (choice.equals("gold")) playerChoice = 3;
+        if(choice.equals("special")) playerChoice = 4;
+    }
+
+
+PackOpenerRunner.java
+
+Steps:
+1) Welcome the user to the game FIFA Pack Opener
+2) Display game instructions, and display amount of FIFA coins user has
+3) Display the pack choices, user selects pack
+4) Display result of pack, name of the soccer player and overall
+5) Display score (overall of the soccer player), and display amount of coins left
+6) Repeat steps until user doesn't have enough coins to continue
+7) End Game and display highest overall player earned
+
+
+Things to do:
+        //Breakdown of the cards:
+        //Add 5 Special Cards (TOTY), //5 90+ overall, 25 80+ overall, 30 70+ overall, 35 60+ overall (Gold Pack)
+
+        //PackOpener1.0
+        //Need to figure out how lists work
+        //Need to figure out how to use math.random on lists
+
+        //PackOpener1.1
+        //If I get gold standard pack done, I can figure out how to create bronze, special, silver packs
+        //Method 1 create different lists for different packs
+        //Method 2 Figure out how to use math.random and if statements to make sure only a certain range of players are selected
+
+        //PackOpener1.2
+        //Make user vs user and give points based on the highest overall, winner with highest points gets points x 1k coins amount
+        //Make computer vs user following the same format, with user losing coins if they get a less higher overall
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          /*  String[] allCards = new String[]{"91 Gold, Robert Lewandowski, FC Barcelona, ST", "92 Gold, Kylian Mbappe, Paris Saint Germain, ST", "85 Gold, Rakitic, Sevilla FC, CM"};
+            String[] silverCards = new String[]{"76 Silver, Dan Burn, CB", "79 Silver, Ronald Araujo, CB"};
+
+            ArrayList<String> allplayerCards = new ArrayList<String>();
+            for(int i = 0; i < allCards.length; i++ ) {
+                allplayerCards.add(allCards[i]);
+            }
+
+            ArrayList<String> allsilverCards = new ArrayList<String>();
+            for(int i = 0; i < silverCards.length; i++ ) {
+                allsilverCards.add(silverCards[i]);
+            }
+
+            int randomPicker = (int)(Math.random()*3);
+            System.out.println("Random Card Picked is: " + allplayerCards.get(randomPicker));
+
+            int silverRandomPicker = (int) (Math.random()*2);
+            System.out.println("Random Card Picked is: " + allsilverCards.get(silverRandomPicker)); */
+            System
