@@ -5,7 +5,6 @@ public class PackOpener {
     private int playerPackChoice;
     private int playerGameChoice;
     private boolean isGameOver = false;
-    private String gameChoice;
     private ArrayList<String> allGoldCards;
     private ArrayList<String> allSilverCards;
     private ArrayList<String> allBronzeCards;
@@ -49,14 +48,26 @@ public class PackOpener {
             int silverRandomPicker = (int) (Math.random() * 2);
             coins = coins - 2000;
             return "Random Card Picked is: " + allSilverCards.get(silverRandomPicker) + "\n" + "Coins: " + coins;
-        } else if (playerPackChoice == 3 && coins >= 3000) {
+        }
+        else if (playerPackChoice == 2 && coins < 2000 && coins > 0) {
+            return "Not enough coins";
+        }
+        else if (playerPackChoice == 3 && coins >= 3000) {
             int goldRandomPicker = (int) (Math.random() * 3);
             coins = coins - 3000;
             return "Random Card Picked is: " + allGoldCards.get(goldRandomPicker) + "\n" + "Coins: " + coins;
-        } else if (playerPackChoice == 1 && coins >= 1000) {
+
+        }
+        else if (playerPackChoice == 3 && coins < 3000 && coins > 0) {
+            return "Not enough coins";
+        }
+        else if (playerPackChoice == 1 && coins >= 1000) {
             int bronzeRandomPicker = (int) (Math.random() * 2);
             coins = coins - 1000;
             return "Random Card Picked is: " + allBronzeCards.get(bronzeRandomPicker) + "\n" + "Coins: " + coins;
+        }
+        else if (playerPackChoice == 1 && coins < 1000 && coins > 0) {
+            return "Not enough coins";
         }
         return "Game is over";
     }
@@ -73,12 +84,23 @@ public class PackOpener {
         // In the main class use the same thing Mr. Das used and then I'm done
     }
 
+    public boolean enoughCoins() {
+        if(coins == 0) {
+            return isGameOver = true;
+        }
+        return isGameOver = false;
+    }
     public boolean isGameOver() {
         if (playerGameChoice == 1) {
             return isGameOver = false;
-        } else if (playerGameChoice == 2) {
+        }
+        else if (playerGameChoice == 1 && coins == 0 || playerGameChoice == 1 && coins == 0 || playerGameChoice == 1 && coins == 0){
             return isGameOver = true;
-        } else return false;
+        }
+        else if (playerGameChoice == 2 ) {
+            return isGameOver = true;
+        }
+        else return false;
 
 
     }
@@ -87,7 +109,7 @@ public class PackOpener {
         if (isGameOver = true) {
             return "Game is over!";
         }
-        return "Game is over!";
+        return "";
 
 
     }

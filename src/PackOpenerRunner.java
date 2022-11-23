@@ -27,8 +27,13 @@ public class PackOpenerRunner {
             System.out.println("Do you want to continue?");
             String gameChoice = s.nextLine();
             c.gameChoice(gameChoice);
+            c.enoughCoins();
+
         }
-       System.out.print(c.gameOver());
+        System.out.print(c.gameOver());
+
+
+
     }
 
 }
