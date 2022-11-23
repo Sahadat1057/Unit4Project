@@ -77,11 +77,6 @@ public class PackOpener {
         gameChoice = gameChoice.toLowerCase();
         if (gameChoice.equals("yes")) playerGameChoice = 1;
         if (gameChoice.equals("no")) playerGameChoice = 2;
-        // Do the same thing I did with user input for pack choice
-        // Ask user do you want to continue
-        // User will put yes or no
-        // Then create isGameOver method based on that
-        // In the main class use the same thing Mr. Das used and then I'm done
     }
 
     public boolean enoughCoins() {
@@ -94,23 +89,17 @@ public class PackOpener {
         if (playerGameChoice == 1) {
             return isGameOver = false;
         }
-        else if (playerGameChoice == 1 && coins == 0 || playerGameChoice == 1 && coins == 0 || playerGameChoice == 1 && coins == 0){
-            return isGameOver = true;
-        }
         else if (playerGameChoice == 2 ) {
             return isGameOver = true;
         }
         else return false;
 
-
     }
-
     public String gameOver() {
         if (isGameOver = true) {
             return "Game is over!";
         }
         return "";
-
 
     }
 }
