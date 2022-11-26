@@ -1,13 +1,17 @@
 import java.util.ArrayList;
 public class PackOpener {
     private int coins = 5000;
-    private int highestValue;
+    private int highestOverall;
     private int playerPackChoice;
     private int playerGameChoice;
     private boolean isGameOver = false;
+
+    private boolean zeroCoins = false;
     private ArrayList<String> allGoldCards;
     private ArrayList<String> allSilverCards;
     private ArrayList<String> allBronzeCards;
+
+    private ArrayList<String> recievedCards;
 
     public PackOpener() {
         String[] silverCards = new String[]{"76 Silver, Dan Burn, CB", "79 Silver, Ronald Araujo, CB"};
@@ -29,9 +33,10 @@ public class PackOpener {
         }
     }
 
-    public PackOpener(int coins, boolean isGameOver) {
+    public PackOpener(int coins, boolean isGameOver, boolean zeroCoins) {
         this.isGameOver = isGameOver;
         this.coins = coins;
+        this.zeroCoins = zeroCoins;
     }
 
     public void playerPackChoice(String choice) {
@@ -47,7 +52,8 @@ public class PackOpener {
         if (playerPackChoice == 2 && coins >= 2000) {
             int silverRandomPicker = (int) (Math.random() * 2);
             coins = coins - 2000;
-            return "Random Card Picked is: " + allSilverCards.get(silverRandomPicker) + "\n" + "Coins: " + coins;
+            String silverCardRecieved = allSilverCards.get(silverRandomPicker);
+            return "Random Card Picked is: " + silverCardRecieved + "\n" + "Coins: " + coins;
         }
         else if (playerPackChoice == 2 && coins < 2000 && coins > 0) {
             return "Not enough coins";
@@ -56,7 +62,6 @@ public class PackOpener {
             int goldRandomPicker = (int) (Math.random() * 3);
             coins = coins - 3000;
             return "Random Card Picked is: " + allGoldCards.get(goldRandomPicker) + "\n" + "Coins: " + coins;
-
         }
         else if (playerPackChoice == 3 && coins < 3000 && coins > 0) {
             return "Not enough coins";
@@ -79,11 +84,15 @@ public class PackOpener {
         if (gameChoice.equals("no")) playerGameChoice = 2;
     }
 
-    public boolean enoughCoins() {
+    public boolean zeroCoins() {
         if(coins == 0) {
-            return isGameOver = true;
+            return zeroCoins = true;
         }
-        return isGameOver = false;
+        else if (coins != 0) {
+            return zeroCoins = false;
+        }
+        return zeroCoins = false;
+
     }
     public boolean isGameOver() {
         if (playerGameChoice == 1) {
@@ -92,14 +101,15 @@ public class PackOpener {
         else if (playerGameChoice == 2 ) {
             return isGameOver = true;
         }
+        else if (coins == 0) {
+            return isGameOver = true;
+        }
         else return false;
+
 
     }
     public String gameOver() {
-        if (isGameOver = true) {
-            return "Game is over!";
-        }
-        return "";
+        return "Game is over!";
 
     }
 }

@@ -3,7 +3,7 @@ public class PackOpenerRunner {
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
         PackOpener g = new PackOpener();
-        PackOpener c = new PackOpener(5000, false);
+        PackOpener c = new PackOpener(5000, false, false);
 
 
         System.out.println();
@@ -19,21 +19,18 @@ public class PackOpenerRunner {
         System.out.println("Special costs 4000 coins");
         System.out.println();
 
-        while (c.isGameOver() == false) {
+        while (c.isGameOver() == false && g.zeroCoins() == false ) {
             System.out.print("Please select which pack you would like to open: ");
             String choice = s.nextLine();
             g.playerPackChoice(choice);
             System.out.println(g.openPack());
-            System.out.println("Do you want to continue?");
-            String gameChoice = s.nextLine();
-            c.gameChoice(gameChoice);
+            if (g.zeroCoins() == false) {
+                System.out.println("Do you want to continue?");
+                String gameChoice = s.nextLine();
+                c.gameChoice(gameChoice);
+            }
         }
-        c.isGameOver();
-        System.out.print(c.gameOver());
-
-
-
-
+        System.out.print(g.gameOver());
     }
 
 }
