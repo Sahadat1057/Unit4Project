@@ -3,7 +3,7 @@ public class PackOpenerRunner {
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
         PackOpener g = new PackOpener();
-        PackOpener c = new PackOpener(5000, false, false);
+        PackOpener c = new PackOpener(20000, false, false);
 
 
         System.out.println();
@@ -30,8 +30,8 @@ public class PackOpenerRunner {
                 c.gameChoice(gameChoice);
             }
         }
-        System.out.println(g.highestValueCard());
-        System.out.print(g.gameOver());
+
+        System.out.println(g.toString());
     }
 
 }
