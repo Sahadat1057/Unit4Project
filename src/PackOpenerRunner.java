@@ -30,6 +30,7 @@ public class PackOpenerRunner {
                 c.gameChoice(gameChoice);
             }
         }
+        System.out.println(g.highestValueCard());
         System.out.print(g.gameOver());
     }
 

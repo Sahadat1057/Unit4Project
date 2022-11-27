@@ -11,7 +11,7 @@ public class PackOpener {
     private ArrayList<String> allSilverCards;
     private ArrayList<String> allBronzeCards;
 
-    private ArrayList<String> recievedCards;
+    private ArrayList<Integer> receivedCards;
 
     public PackOpener() {
         String[] silverCards = new String[]{"76 Silver, Dan Burn, CB", "79 Silver, Ronald Araujo, CB"};
@@ -31,6 +31,8 @@ public class PackOpener {
         for (int i = 0; i < bronzeCards.length; i++) {
             allBronzeCards.add(bronzeCards[i]);
         }
+
+        receivedCards = new ArrayList<Integer>();
     }
 
     public PackOpener(int coins, boolean isGameOver, boolean zeroCoins) {
@@ -52,8 +54,11 @@ public class PackOpener {
         if (playerPackChoice == 2 && coins >= 2000) {
             int silverRandomPicker = (int) (Math.random() * 2);
             coins = coins - 2000;
-            String silverCardRecieved = allSilverCards.get(silverRandomPicker);
-            return "Random Card Picked is: " + silverCardRecieved + "\n" + "Coins: " + coins;
+            String silverCardReceived = allSilverCards.get(silverRandomPicker);
+            String overallSilver = silverCardReceived.substring(0,2);
+            int silverCardValue = Integer.parseInt(overallSilver);
+            receivedCards.add(silverCardValue);
+            return "Random Card Picked is: " + silverCardReceived + "\n" + "Coins: " + coins;
         }
         else if (playerPackChoice == 2 && coins < 2000 && coins > 0) {
             return "Not enough coins";
@@ -61,7 +66,11 @@ public class PackOpener {
         else if (playerPackChoice == 3 && coins >= 3000) {
             int goldRandomPicker = (int) (Math.random() * 3);
             coins = coins - 3000;
-            return "Random Card Picked is: " + allGoldCards.get(goldRandomPicker) + "\n" + "Coins: " + coins;
+            String goldCardReceived = allGoldCards.get(goldRandomPicker);
+            String overallGold = goldCardReceived.substring(0,2);
+            int goldCardValue = Integer.parseInt(overallGold);
+            receivedCards.add(goldCardValue);
+            return "Random Card Picked is: " + goldCardReceived + "\n" + "Coins: " + coins;
         }
         else if (playerPackChoice == 3 && coins < 3000 && coins > 0) {
             return "Not enough coins";
@@ -69,12 +78,31 @@ public class PackOpener {
         else if (playerPackChoice == 1 && coins >= 1000) {
             int bronzeRandomPicker = (int) (Math.random() * 2);
             coins = coins - 1000;
-            return "Random Card Picked is: " + allBronzeCards.get(bronzeRandomPicker) + "\n" + "Coins: " + coins;
+            String bronzeCardReceived = allBronzeCards.get(bronzeRandomPicker);
+            String overallBronze = bronzeCardReceived.substring(0,2);
+            int bronzeCardValue = Integer.parseInt(overallBronze);
+            receivedCards.add(bronzeCardValue);
+            return "Random Card Picked is: " + bronzeCardReceived + "\n" + "Coins: " + coins;
         }
         else if (playerPackChoice == 1 && coins < 1000 && coins > 0) {
             return "Not enough coins";
         }
         return "Game is over";
+    }
+
+    public String highestValueCard () {
+        int maximum = receivedCards.get(0);
+        for(int i = 0; i < receivedCards.size(); i++ ) {
+            if(maximum < receivedCards.get(i)) {
+                maximum = receivedCards.get(i);
+            }
+            else if (maximum == receivedCards.get(i)) {
+                maximum = receivedCards.get(i);
+            }
+            return "Highest overall card obtained is: " + maximum + " overall";
+        }
+        return "" + maximum;
+
     }
 
 
