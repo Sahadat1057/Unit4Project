@@ -154,7 +154,7 @@ public class PackOpener {
     /**
      * This method will use the user input of 'gameChoice' and sets playerGameChoice to an int value,
      * so when playerGameChoice conditional is used on isGameOver(), the computer will know if the game is over or not
-     * @param gameChoice
+     * @param gameChoice is the user gameChoice input
      */
     public void gameChoice(String gameChoice) {
         gameChoice = gameChoice.toLowerCase();
@@ -164,7 +164,7 @@ public class PackOpener {
 
     /**
      * This method will check if coins is equal to zero, and if zeroCoins = true the while loop in the runner class would end ending the game
-     * @return
+     * @return returns a boolean variable to see if coins = 0
      */
     public boolean zeroCoins() {
         if(coins == 0) {
