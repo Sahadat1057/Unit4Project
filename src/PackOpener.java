@@ -1,4 +1,9 @@
 import java.util.ArrayList;
+
+/**
+ * The PackOpener class represents opening a pack. Opening a pack requires array lists, coins, int variables ( set
+ * to specific numbers depending on the pack), and ending the pack opening game requires boolean variables.
+ */
 public class PackOpener {
     private int coins = 20000;
     private int playerPackChoice;
@@ -15,8 +20,8 @@ public class PackOpener {
 
     private ArrayList<Integer> receivedCards;
 
-    /** This constructor will create the bronze, silver, gold and special lists and turn them into array lists so operations can be done on them. Also, creates the received cards array list.
-     * @return
+    /** Constructor for the PackOpener class. This creates a new instance of a PackOpener given
+     * zero parameters.
      */
     public PackOpener() {
         String[] bronzeCards = new String[]{"64 Bronze, Yerson Mosquera, Wolves FC, CB", "64 Bronze, Matthew Smith, Arsenal FC, CDM", "62 Bronze, Romeo Lavia, Southampton FC, CDM", "59 Bronze, Evan Ferguson, Brighton FC, ST", "60 Bronze, James Norris, Liverpool FC, LB"};
@@ -47,10 +52,11 @@ public class PackOpener {
     }
 
     /**
-     * This constructor has 3 parameters int coins, boolean isGameOver, boolean zeroCoins
-     * @param coins sets this.coins to coins and is used to set coins to 20000 in the runner class
-     * @param isGameOver sets this.isGameOver to isGameOver and is set to false in the runner class
-     * @param zeroCoins sets this.zeroCoins to zeroCoins and is set to false in the runner class
+     * This constructor for the PackOpener class. This creates a new instance of a PackOpener given
+     * the below parameters.
+     * @param coins represents the amount of coins the user has
+     * @param isGameOver represents if the game is over or not
+     * @param zeroCoins represents if coins = 0 or not
      */
     public PackOpener(int coins, boolean isGameOver, boolean zeroCoins) {
         this.isGameOver = isGameOver;
@@ -59,7 +65,8 @@ public class PackOpener {
     }
 
     /**
-     * This method will use the user input 'choice' and set it to playerPackChoice to an int value, so when playerPackChoice is used as a conditional in the openPack() method, that method will know which specific pack the user wants to open
+     * This method will use the user input 'choice' and set playerPackChoice to an int value,
+     * so when playerPackChoice is used as a conditional in the openPack() method, that method will know which specific pack the user wants to open
      * @param choice is the user pack choice input
      */
     public void playerPackChoice(String choice) {
@@ -71,8 +78,10 @@ public class PackOpener {
     }
 
     /**
-     * This method uses a playerPackChoice and coins conditionals to get a random card by using Math.random, it will also subtract the specific amount of coins given the pack chosen, and creates a substring which will be parsed to be added to an integer array list for the highestValueCard() method
-     * @return
+     * This method uses a playerPackChoice and coins conditionals to get a random card by using Math.random,
+     * it will also subtract the specific amount of coins given the pack chosen,
+     * and creates a substring which will be parsed to be added to an integer array list for the highestValueCard() method
+     * @return returns a String containing the 'received card' and amount of coins the user has
      */
     public String openPack() {
          if (playerPackChoice == 1 && coins >= 1000) {
@@ -129,7 +138,7 @@ public class PackOpener {
 
     /**
      * This method will use the parsed integers given by the openPack() method and will use a for loop to find the highest overall card value
-     * @return
+     * @return returns the highest overall value based on the cards the user received
      */
     public String highestValueCard () {
         int startingValue = receivedCards.get(0);
@@ -143,7 +152,8 @@ public class PackOpener {
     }
 
     /**
-     * This method will use the user input of 'gameChoice' and sets playerGameChoice to an int value, so when playerGameChoice conditional is used on isGameOver(), the computer will know if the game is over or not
+     * This method will use the user input of 'gameChoice' and sets playerGameChoice to an int value,
+     * so when playerGameChoice conditional is used on isGameOver(), the computer will know if the game is over or not
      * @param gameChoice
      */
     public void gameChoice(String gameChoice) {
@@ -169,7 +179,7 @@ public class PackOpener {
 
     /**
      * This method will use conditionals based on the playerGameChoice and zeroCoins values in playerPackChoice() and zeroCoins() to see if the game is over or not
-     * @return
+     * @return returns a boolean value to see if the game is over or not based on the conditionals playerGameChoice and zeroCoins
      */
     public boolean isGameOver() {
         if (playerGameChoice == 1) {
@@ -188,7 +198,7 @@ public class PackOpener {
 
     /**
      * This method will display the highest overall value card and the game is over message when the game is over
-     * @return
+     * @return returns a String which displays the highest overall card and the game is over message
      */
     public String toString() {
         String displayHighestValueCard = "Highest Overall Card: " + highestValueCard() + "\n";
