@@ -4,7 +4,7 @@ public class PackOpenerRunner {
 
         System.out.println();
         System.out.println("Hello Welcome to FIFA Pack Opener!");
-        System.out.println("You have been given 5000 coins to start off with.");
+        System.out.println("You have been given 20000 coins to start off with.");
         System.out.println();
         System.out.println("The goal is simple, open packs to get the highest overall player possible.");
         System.out.println();
