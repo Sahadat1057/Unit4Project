@@ -15,6 +15,9 @@ public class PackOpener {
 
     private ArrayList<Integer> receivedCards;
 
+    /** This constructor will create the bronze, silver, gold and special lists and turn them into array lists so operations can be done on them. Also, creates the received cards array list.
+     * @return
+     */
     public PackOpener() {
         String[] bronzeCards = new String[]{"64 Bronze, Yerson Mosquera, Wolves FC, CB", "64 Bronze, Matthew Smith, Arsenal FC, CDM", "62 Bronze, Romeo Lavia, Southampton FC, CDM", "59 Bronze, Evan Ferguson, Brighton FC, ST", "60 Bronze, James Norris, Liverpool FC, LB"};
         allBronzeCards = new ArrayList<String>();
@@ -43,12 +46,22 @@ public class PackOpener {
         receivedCards = new ArrayList<Integer>();
     }
 
+    /**
+     * This constructor has 3 parameters int coins, boolean isGameOver, boolean zeroCoins
+     * @param coins sets this.coins to coins and is used to set coins to 20000 in the runner class
+     * @param isGameOver sets this.isGameOver to isGameOver and is set to false in the runner class
+     * @param zeroCoins sets this.zeroCoins to zeroCoins and is set to false in the runner class
+     */
     public PackOpener(int coins, boolean isGameOver, boolean zeroCoins) {
         this.isGameOver = isGameOver;
         this.coins = coins;
         this.zeroCoins = zeroCoins;
     }
 
+    /**
+     * This method will use the user input 'choice' and set it to playerPackChoice to an int value, so when playerPackChoice is used as a conditional in the openPack() method, that method will know which specific pack the user wants to open
+     * @param choice is the user pack choice input
+     */
     public void playerPackChoice(String choice) {
         choice = choice.toLowerCase();
         if (choice.equals("bronze")) playerPackChoice = 1;
@@ -57,7 +70,10 @@ public class PackOpener {
         if (choice.equals("special")) playerPackChoice = 4;
     }
 
-
+    /**
+     * This method uses a playerPackChoice and coins conditionals to get a random card by using Math.random, it will also subtract the specific amount of coins given the pack chosen, and creates a substring which will be parsed to be added to an integer array list for the highestValueCard() method
+     * @return
+     */
     public String openPack() {
          if (playerPackChoice == 1 && coins >= 1000) {
             int bronzeRandomPicker = (int) (Math.random() * 5);
@@ -111,6 +127,10 @@ public class PackOpener {
         return "Game is over";
     }
 
+    /**
+     * This method will use the parsed integers given by the openPack() method and will use a for loop to find the highest overall card value
+     * @return
+     */
     public String highestValueCard () {
         int startingValue = receivedCards.get(0);
         for(int i = 0; i < receivedCards.size(); i++ ) {
@@ -122,15 +142,20 @@ public class PackOpener {
 
     }
 
-
-
-
+    /**
+     * This method will use the user input of 'gameChoice' and sets playerGameChoice to an int value, so when playerGameChoice conditional is used on isGameOver(), the computer will know if the game is over or not
+     * @param gameChoice
+     */
     public void gameChoice(String gameChoice) {
         gameChoice = gameChoice.toLowerCase();
         if (gameChoice.equals("yes")) playerGameChoice = 1;
         if (gameChoice.equals("no")) playerGameChoice = 2;
     }
 
+    /**
+     * This method will check if coins is equal to zero, and if zeroCoins = true the while loop in the runner class would end ending the game
+     * @return
+     */
     public boolean zeroCoins() {
         if(coins == 0) {
             return zeroCoins = true;
@@ -141,6 +166,11 @@ public class PackOpener {
         return zeroCoins = false;
 
     }
+
+    /**
+     * This method will use conditionals based on the playerGameChoice and zeroCoins values in playerPackChoice() and zeroCoins() to see if the game is over or not
+     * @return
+     */
     public boolean isGameOver() {
         if (playerGameChoice == 1) {
             return isGameOver = false;
@@ -156,6 +186,10 @@ public class PackOpener {
 
     }
 
+    /**
+     * This method will display the highest overall value card and the game is over message when the game is over
+     * @return
+     */
     public String toString() {
         String displayHighestValueCard = "Highest Overall Card: " + highestValueCard() + "\n";
         String gameOver = "Game is over!";

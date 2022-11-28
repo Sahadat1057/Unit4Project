@@ -1,58 +1,64 @@
 PackOpener Class
 
 Instance Variables:
-private int coins;
-private int overallValue;
-
+    private int coins = 20000; //this variable represents the amount of coins the user starts the game off with
+    private int playerPackChoice; //this variable represents the user's pack choice in terms of an int value
+    private int playerGameChoice; //this variable represents the user's choice to continue the game in terms of an int value
+    private boolean isGameOver = false; //this variable represents if the game is over in terms of a boolean value
+    private boolean zeroCoins = false; //this variable represents if the user has zero coins in terms of a boolean value
+    private ArrayList<String> allBronzeCards; //this variable represents the bronze cards available in terms of Strings inside of an array list
+    private ArrayList<String> allSilverCards; //this variable represents the silver cards available in terms of Strings inside of an array list
+    private ArrayList<String> allGoldCards; //this variable represents the gold cards available in terms of Strings inside of an array list
+    private ArrayList<String> allSpecialCards; //this variable represents the special cards available in terms of Strings inside of an array list
+    private ArrayList<Integer> receivedCards; //this variable represents the overall value of the packed cards inside of an array list
 
 
 
 Constructors:
-PackOpener() {
-}
+PackOpener() {}
+This constructor will create the bronze, silver, gold and special lists and turn them into array lists so operations can be done on them. Also, creates the received cards array list.
+
+PackOpener(int coins, boolean isGameOver, boolean zeroCoins)
+This constructor will set the instance variables into the specific parameters to set them to a certain value
 
 
 Methods:
 
-public void playerPackChoice(String choice) {
-        choice = choice.toLowerCase();
-        if (choice.equals("bronze")) playerChoice = 1;
-        if (choice.equals("silver")) playerChoice = 2;
-        if (choice.equals("gold")) playerChoice = 3;
-        if(choice.equals("special")) playerChoice = 4;
-    }
+    public void playerPackChoice(String choice) method
+    This method will use the user input 'choice' and set it to playerPackChoice to an int value, so when playerPackChoice int value is called later on in openPack() method, that method will know which specific pack the user wants to open
+
+    public String openPack() method
+    This method uses a bunch of conditionals to get a random card by using Math.random, it will also subtract the specific amount of coins given the pack, create a substring which will be parsed to be added to an integer array list for the highestValueCard() method
+
+    public String highestValueCard ()
+    This method will use the parsed integers given by the openPack() method and will use a for loop to find the highest overall card value
+
+    public void gameChoice(String gameChoice)
+    This method will use the user input of continuing the game or not and sets it to an int value, so when these int values are called later on in isGameOver(), the computer will know if the gameisOver or not
+
+    public boolean zeroCoins()
+    This method will check if coins is equal to zero, and if it is zeroCoins = true which would end the while loop in the runner class
+
+    public boolean isGameOver()
+    This method will use the int value in gameChoice() to see if the game is over or not
+
+    public String toString()
+    This method will display the highest overall card value and the message declaring game is over
 
 
-PackOpenerRunner.java
+
+
+PackOpenerRunner
 
 Steps:
 1) Welcome the user to the game FIFA Pack Opener
 2) Display game instructions, and display amount of FIFA coins user has
 3) Display the pack choices, user selects pack
-4) Display result of pack, name of the soccer player and overall
-5) Display score (overall of the soccer player), and display amount of coins left
-6) Repeat steps until user doesn't have enough coins to continue
-7) End Game and display highest overall player earned
-
-
-Things to do:
-        //Breakdown of the cards:
-        //Add 5 Special Cards (TOTY), //5 90+ overall, 25 80+ overall, 30 70+ overall, 35 60+ overall (Gold Pack)
-
-        //PackOpener1.0
-        //Need to figure out how lists work
-        //Need to figure out how to use math.random on lists
-
-        //PackOpener1.1
-        //If I get gold standard pack done, I can figure out how to create bronze, special, silver packs
-        //Method 1 create different lists for different packs
-        //Method 2 Figure out how to use math.random and if statements to make sure only a certain range of players are selected
-
-        //PackOpener1.2
-        //Make user vs user and give points based on the highest overall, winner with highest points gets points x 1k coins amount
-        //Make computer vs user following the same format, with user losing coins if they get a less higher overall
-
-    }
+4) Display result of pack, name of the soccer player, overall, club etc.
+5) Display amount of coins left
+7) Asks user if they want to continue the game
+8) Repeat steps until user doesn't have enough coins to continue
+9) End Game and display highest overall player value earned
 
 
 
@@ -67,24 +73,3 @@ Things to do:
 
 
 
-
-
-          /*  String[] allCards = new String[]{"91 Gold, Robert Lewandowski, FC Barcelona, ST", "92 Gold, Kylian Mbappe, Paris Saint Germain, ST", "85 Gold, Rakitic, Sevilla FC, CM"};
-            String[] silverCards = new String[]{"76 Silver, Dan Burn, CB", "79 Silver, Ronald Araujo, CB"};
-
-            ArrayList<String> allplayerCards = new ArrayList<String>();
-            for(int i = 0; i < allCards.length; i++ ) {
-                allplayerCards.add(allCards[i]);
-            }
-
-            ArrayList<String> allsilverCards = new ArrayList<String>();
-            for(int i = 0; i < silverCards.length; i++ ) {
-                allsilverCards.add(silverCards[i]);
-            }
-
-            int randomPicker = (int)(Math.random()*3);
-            System.out.println("Random Card Picked is: " + allplayerCards.get(randomPicker));
-
-            int silverRandomPicker = (int) (Math.random()*2);
-            System.out.println("Random Card Picked is: " + allsilverCards.get(silverRandomPicker)); */
-            System
